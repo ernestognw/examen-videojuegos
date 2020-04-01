@@ -54,7 +54,7 @@ public class Game implements Runnable {
         // frames per second
         int fps = 50;
         // time for each tick in nano seconds
-        double timeTick = 1000000000 / fps;
+        double timeTick = Commons.FPS / fps;
         // initializing delta
         double delta = 0;
         // define now to use inside the loop

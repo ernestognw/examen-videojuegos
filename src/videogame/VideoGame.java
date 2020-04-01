@@ -14,7 +14,7 @@ public class VideoGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Game g = new Game("Mejorado Invaders", 800, 500);
+        Game g = new Game("Mejorado Invaders", Commons.WINDOW_WIDTH, Commons.WINDOW_HEIGHT);
         g.start();
     }
 }
