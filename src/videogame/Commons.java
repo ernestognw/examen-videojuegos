@@ -20,12 +20,12 @@ public interface Commons {
     int GROUND = 665;
 
     // Player
-    int PLAYER_WIDTH = 60;
-    int PLAYER_HEIGHT = 60;
+    int PLAYER_WIDTH = 57;
+    int PLAYER_HEIGHT = 64;
 
     // Alien
-    int ALIEN_HEIGHT = 60;
-    int ALIEN_WIDTH = 60;
+    int ALIEN_HEIGHT = 64;
+    int ALIEN_WIDTH = 39;
     int ALIEN_INIT_X = 150;
     int ALIEN_INIT_Y = 5;
     int ALIEN_PADDING = 5;
@@ -33,4 +33,9 @@ public interface Commons {
     // Background
     int BACKGROUND_HEIGHT = 1920;
     int BACKGROUND_WIDTH = 1080;
+
+    // Bomb
+    int BOMB_HEIGHT = 16;
+    int BOMB_WIDTH = 22;
+    double BOMB_CHANCE = 0.005;
 }

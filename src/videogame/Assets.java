@@ -10,12 +10,13 @@ import java.awt.image.BufferedImage;
  * @author Ernesto García and Oscar Rodríguez
  */
 public class Assets {
-    public static BufferedImage BG;           // to store background image
-    public static BufferedImage Planets;           // to store background image
-    public static BufferedImage Stars;           // to store background image
-    public static BufferedImage Meteors;      // to store background image
-    public static BufferedImage[] player;     // to store the player images
-    public static BufferedImage[] alien;     // to store the player images
+    public static BufferedImage BG;             // to store background image
+    public static BufferedImage Planets;        // to store background image
+    public static BufferedImage Stars;          // to store background image
+    public static BufferedImage Meteors;        // to store background image
+    public static BufferedImage[] player;       // to store the player images
+    public static BufferedImage[] alien;        // to store the alien images
+    public static BufferedImage[] bomb;         // to store the bomb images
 
     /**
      * initializing the images of the game
@@ -28,6 +29,7 @@ public class Assets {
 
         player = loadSprites(10, 57, 64, "/images/sprites/player.png");
         alien = loadSprites(10, 39, 64, "/images/sprites/alien.png");
+        bomb = loadSprites(10, 88, 64, "/images/sprites/bomb.png");
     }
 
     private static BufferedImage[] loadSprites(int framesInSprite, int frameWidth, int frameHeight, String path){

@@ -25,7 +25,7 @@ public class SpaceShip extends Item {
     public SpaceShip(int x, int y, int width, int height, Game game) {
         super(x, y, width, height);
 
-        speed = 5;
+        speed = 15;
         this.game = game;
         animation = new Animation(Assets.player, 100);
     }

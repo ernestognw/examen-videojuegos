@@ -25,6 +25,7 @@ public class Game implements Runnable {
     private SpaceShip player;               // to use a player
     private KeyManager keyManager;          // to manage the keyboard
     private List<Alien> aliens;             // to store aliens
+    private List<Bomb> bombs;               // to store bombs
     private int aliensDirection;            // to store the alien direction
 
     // BG Variables
@@ -75,6 +76,7 @@ public class Game implements Runnable {
         display.getJframe().addKeyListener(keyManager);
         player = new SpaceShip(width / 2, Commons.GROUND - Commons.PLAYER_HEIGHT, Commons.PLAYER_WIDTH, Commons.PLAYER_HEIGHT, this);
         aliens = new ArrayList<>();
+        bombs = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
@@ -126,6 +128,15 @@ public class Game implements Runnable {
         for (Alien alien : aliens) {
             if (aliensDirection != initialDirection) alien.setY(alien.getY() + 10);
             alien.act(aliensDirection);
+            if(Math.random() < Commons.BOMB_CHANCE){
+                Bomb bomb = new Bomb(alien.getX(), alien.getY(), Commons.BOMB_WIDTH, Commons.BOMB_HEIGHT);
+                bombs.add(bomb);
+            }
+        }
+
+        for (Bomb bomb : bombs) {
+            bomb.tick();
+//            if(bomb.getY() > Commons.WINDOW_HEIGHT) bombs.remove(bomb);
         }
         keyManager.tick();
     }
@@ -175,6 +186,11 @@ public class Game implements Runnable {
             // Alien
             for (Alien alien : aliens) {
                 alien.render(g);
+            }
+
+            // Bomb
+            for (Bomb bomb : bombs) {
+                bomb.render(g);
             }
 
             bs.show();
