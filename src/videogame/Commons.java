@@ -12,6 +12,6 @@ package videogame;
  */
 public interface Commons {
     int FPS = 50;
-    int WINDOW_WIDTH = 360;
-    int WINDOW_HEIGHT = 640;
+    int WINDOW_WIDTH = 468;
+    int WINDOW_HEIGHT = 832;
 }
