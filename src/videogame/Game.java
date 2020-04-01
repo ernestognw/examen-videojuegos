@@ -96,9 +96,11 @@ public class Game implements Runnable {
         } else {
             g = bs.getDrawGraphics();
 
-            /*
-            * Aqui va el background y el render de los items
-            */
+            // Aqui va el background y el render de los items
+            g.drawImage(Assets.BG, 0, 0, width, height, null);
+            g.drawImage(Assets.Meteors, 0, 0, width, height, null);
+            g.drawImage(Assets.Planets, 0, 0, width, height, null);
+            g.drawImage(Assets.Stars, 0, 0, width, height, null);
 
             bs.show();
             g.dispose();
