@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * @author antoniomejorado
+ * @author Ernesto García and Oscar Rodríguez
  */
 public class Display {
     private JFrame jframe;  // this is the app class

@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * @author Ernesto García
+ * @author Ernesto García and Oscar Rodríguez
  */
 public class ImageLoader {
     /**

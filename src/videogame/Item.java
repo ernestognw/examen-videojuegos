@@ -7,7 +7,7 @@ package videogame;/*
 import java.awt.*;
 
 /**
- * @author Ernesto García
+ * @author Ernesto García and Oscar Rodríguez
  */
 public abstract class Item {
     protected int x;        // to store x position

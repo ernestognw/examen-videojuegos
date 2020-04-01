@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 /**
- * @author Ernesto García
+ * @author Ernesto García and Oscar Rodriguez
  */
 public class Game implements Runnable {
     String title;                           // title of the window
@@ -54,7 +54,7 @@ public class Game implements Runnable {
         // frames per second
         int fps = 50;
         // time for each tick in nano seconds
-        double timeTick = 1000000000 / fps;
+        double timeTick = Commons.FPS / fps;
         // initializing delta
         double delta = 0;
         // define now to use inside the loop
@@ -96,9 +96,11 @@ public class Game implements Runnable {
         } else {
             g = bs.getDrawGraphics();
 
-            /*
-            * Aqui va el background y el render de los items
-            */
+            // Aqui va el background y el render de los items
+            g.drawImage(Assets.BG, 0, 0, width, height, null);
+            g.drawImage(Assets.Meteors, 0, 0, width, height, null);
+            g.drawImage(Assets.Planets, 0, 0, width, height, null);
+            g.drawImage(Assets.Stars, 0, 0, width, height, null);
 
             bs.show();
             g.dispose();

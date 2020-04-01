@@ -12,7 +12,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 /**
- * @author Ernesto García
+ * @author Ernesto García and Oscar Rodríguez
  */
 public class SoundLoader extends Application {
 
