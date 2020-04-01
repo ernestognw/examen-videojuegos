@@ -10,8 +10,9 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class SpaceShip extends Item {
-
     private int dx;
+    private Animation animation;
+    private Game game;
 
     /**
      * Set the initial values to create the item
@@ -21,49 +22,35 @@ public class SpaceShip extends Item {
      * @param width
      * @param height
      */
-    public SpaceShip(int x, int y, int width, int height) {
+    public SpaceShip(int x, int y, int width, int height, Game game) {
         super(x, y, width, height);
 
-        setX(270);
-        setY(280);
-        setWidth(width);
-        setHeight(height);
-    }
-
-    public int getdx() {
-        return dx;
-    }
-
-    public void setdx(int dx) {
-        this.dx = dx;
+        dx = 2;
+        this.game = game;
+        animation = new Animation(Assets.player, 100);
     }
 
     public void tick() {
-        setX(getX() + getdx());
+        animation.tick();
+        if (game.getKeyManager().RIGHT) {
+            setX(getX() + dx);
+        }
 
-        if (getX() <= 2) {
-            setX(2);
-        } else if (getX() >= Commons.BOARD_WIDTH - 2 * width) {
-            setX(Commons.BOARD_WIDTH - 2 * width);
+        if (game.getKeyManager().LEFT) {
+            setX(getX() - dx);
+        }
+
+        if (getX() <= Commons.BORDER_LEFT) {
+            setX(Commons.BORDER_LEFT);
+        }
+
+        if (getX() >= Commons.WINDOW_WIDTH - Commons.BORDER_RIGHT) {
+            setX(Commons.WINDOW_WIDTH - Commons.BORDER_RIGHT);
         }
     }
 
     @Override
     public void render(Graphics g) {
-//        g.drawImage(Assets.SpaceShip, getX(), getY(), getWidth(), getHeight(), null);
-    }
-
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            setdx(-2);
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            setdx(2);
-        }
-    }
-
-    public void keyReleased(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            setdx(0);
-        }
+        g.drawImage(animation.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
     }
 }

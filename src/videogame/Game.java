@@ -20,6 +20,7 @@ public class Game implements Runnable {
     private int height;                     // height of the window
     private Thread thread;                  // thread to create the game
     private boolean running;                // to set the game
+    private SpaceShip player;               // to use a player
     private KeyManager keyManager;          // to manage the keyboard
 
     /**
@@ -37,6 +38,14 @@ public class Game implements Runnable {
         keyManager = new KeyManager();
     }
 
+    /**
+     * To get the key manager
+     * @return <code>KeyManager</code>
+     */
+    public KeyManager getKeyManager() {
+        return keyManager;
+    }
+
 
     /**
      * initializing the display window of the game
@@ -46,6 +55,7 @@ public class Game implements Runnable {
         Assets.init();
         Sounds.init();
         display.getJframe().addKeyListener(keyManager);
+        player = new SpaceShip(width / 2, Commons.GROUND - Commons.PLAYER_HEIGHT, Commons.PLAYER_WIDTH, Commons.PLAYER_HEIGHT, this);
     }
 
     @Override
@@ -79,7 +89,8 @@ public class Game implements Runnable {
     }
 
     private void tick() {
-
+        player.tick();
+        keyManager.tick();
     }
 
     private void render() {
@@ -96,11 +107,14 @@ public class Game implements Runnable {
         } else {
             g = bs.getDrawGraphics();
 
-            // Aqui va el background y el render de los items
+            // Background
             g.drawImage(Assets.BG, 0, 0, width, height, null);
             g.drawImage(Assets.Meteors, 0, 0, width, height, null);
             g.drawImage(Assets.Planets, 0, 0, width, height, null);
             g.drawImage(Assets.Stars, 0, 0, width, height, null);
+
+            // Player
+            player.render(g);
 
             bs.show();
             g.dispose();

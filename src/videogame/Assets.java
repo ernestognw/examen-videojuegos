@@ -33,16 +33,18 @@ public class Assets {
      * To load the player spritesheet for animations
      */
     private static void loadPlayer(){
-        int framesInSprite = 9;
+        int framesInSprite = 10;
+        int frameWidth = 57;
+        int frameHeight = 64;
         BufferedImage playerSprites;
         playerSprites = ImageLoader.loadImage("/images/sprites/player.png");
 
-        player = new BufferedImage[9];
+        player = new BufferedImage[framesInSprite];
 
         SpriteSheet playerSpriteSheets = new SpriteSheet(playerSprites);
 
         for (int i = 0; i < framesInSprite; i++) {
-            player[i] = playerSpriteSheets.crop(i * 64, 0, 64, 64);
+            player[i] = playerSpriteSheets.crop(i * frameWidth, 0, frameWidth, frameHeight);
         }
     }
 }

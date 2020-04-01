@@ -29,20 +29,12 @@ public class KeyManager implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // set true to every key pressed
-        if (e.getKeyCode() != KeyEvent.VK_P) {
-            keys[e.getKeyCode()] = true;
-        }
+        keys[e.getKeyCode()] = true;
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        // set false to every key released
-        if (e.getKeyCode() == KeyEvent.VK_P) {
-            keys[e.getKeyCode()] = !keys[e.getKeyCode()];
-        } else {
-            keys[e.getKeyCode()] = false;
-        }
+        keys[e.getKeyCode()] = false;
     }
 
     /**
