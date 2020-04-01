@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class SpaceShip extends Item {
-    private int dx;
+    private int speed;
     private Animation animation;
     private Game game;
 
@@ -25,7 +25,7 @@ public class SpaceShip extends Item {
     public SpaceShip(int x, int y, int width, int height, Game game) {
         super(x, y, width, height);
 
-        dx = 2;
+        speed = 5;
         this.game = game;
         animation = new Animation(Assets.player, 100);
     }
@@ -33,11 +33,11 @@ public class SpaceShip extends Item {
     public void tick() {
         animation.tick();
         if (game.getKeyManager().RIGHT) {
-            setX(getX() + dx);
+            setX(getX() + speed);
         }
 
         if (game.getKeyManager().LEFT) {
-            setX(getX() - dx);
+            setX(getX() - speed);
         }
 
         if (getX() <= Commons.BORDER_LEFT) {

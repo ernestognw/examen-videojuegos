@@ -27,6 +27,12 @@ public class Game implements Runnable {
     private List<Alien> aliens;             // to store aliens
     private int aliensDirection;            // to store the alien direction
 
+    // BG Variables
+    private int BGPosition;
+    private int MeteorsPosition;
+    private int PlanetsPosition;
+    private int StarsPosition;
+
     /**
      * to create title, width and height and set the game is still not running
      *
@@ -41,6 +47,12 @@ public class Game implements Runnable {
         running = false;
         keyManager = new KeyManager();
         aliensDirection = 1;
+
+        // BG
+        BGPosition = Commons.WINDOW_HEIGHT - Commons.BACKGROUND_HEIGHT;
+        MeteorsPosition = Commons.WINDOW_HEIGHT - Commons.BACKGROUND_HEIGHT;
+        PlanetsPosition = Commons.WINDOW_HEIGHT - Commons.BACKGROUND_HEIGHT;
+        StarsPosition = Commons.WINDOW_HEIGHT - Commons.BACKGROUND_HEIGHT;
     }
 
     /**
@@ -66,7 +78,7 @@ public class Game implements Runnable {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
-                Alien alien = new Alien(Commons.ALIEN_INIT_X + Commons.ALIEN_WIDTH * j, Commons.ALIEN_INIT_Y + Commons.ALIEN_HEIGHT * i, Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT);
+                Alien alien = new Alien(Commons.ALIEN_INIT_X + ((Commons.ALIEN_WIDTH + Commons.ALIEN_PADDING) * j), Commons.ALIEN_INIT_Y + ((Commons.ALIEN_HEIGHT + Commons.ALIEN_PADDING) * i), Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT);
                 aliens.add(alien);
             }
         }
@@ -75,10 +87,8 @@ public class Game implements Runnable {
     @Override
     public void run() {
         init();
-        // frames per second
-        int fps = 50;
         // time for each tick in nano seconds
-        double timeTick = Commons.FPS / fps;
+        double timeTick = 1000000000 / Commons.FPS;
         // initializing delta
         double delta = 0;
         // define now to use inside the loop
@@ -104,13 +114,17 @@ public class Game implements Runnable {
 
     private void tick() {
         player.tick();
+        int initialDirection = aliensDirection;
+        // Check if any alien reach borders
         for (Alien alien : aliens) {
             if (alien.getX() <= Commons.BORDER_LEFT || alien.getX() >= Commons.WINDOW_WIDTH - Commons.BORDER_RIGHT) {
                 aliensDirection *= -1;
                 break;
             }
         }
+
         for (Alien alien : aliens) {
+            if (aliensDirection != initialDirection) alien.setY(alien.getY() + 10);
             alien.act(aliensDirection);
         }
         keyManager.tick();
@@ -131,10 +145,29 @@ public class Game implements Runnable {
             g = bs.getDrawGraphics();
 
             // Background
-            g.drawImage(Assets.BG, 0, 0, width, height, null);
-            g.drawImage(Assets.Meteors, 0, 0, width, height, null);
-            g.drawImage(Assets.Planets, 0, 0, width, height, null);
-            g.drawImage(Assets.Stars, 0, 0, width, height, null);
+            BGPosition += 5;
+            StarsPosition += 4;
+            PlanetsPosition += 3;
+            MeteorsPosition += 2;
+
+
+            g.drawImage(Assets.BG, 0, BGPosition, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
+            g.drawImage(Assets.BG, 0, BGPosition - Commons.BACKGROUND_HEIGHT, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
+
+            g.drawImage(Assets.Stars, 0, StarsPosition, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
+            g.drawImage(Assets.Stars, 0, StarsPosition - Commons.BACKGROUND_HEIGHT, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
+
+            g.drawImage(Assets.Planets, 0, PlanetsPosition, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
+            g.drawImage(Assets.Planets, 0, PlanetsPosition - Commons.BACKGROUND_HEIGHT, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
+
+            g.drawImage(Assets.Meteors, 0, MeteorsPosition, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
+            g.drawImage(Assets.Meteors, 0, MeteorsPosition - Commons.BACKGROUND_HEIGHT, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
+
+
+            if(BGPosition > Commons.WINDOW_HEIGHT) BGPosition -= Commons.BACKGROUND_HEIGHT;
+            if(MeteorsPosition > Commons.WINDOW_HEIGHT) MeteorsPosition -= Commons.BACKGROUND_HEIGHT;
+            if(PlanetsPosition > Commons.WINDOW_HEIGHT) PlanetsPosition -= Commons.BACKGROUND_HEIGHT;
+            if(StarsPosition > Commons.WINDOW_HEIGHT) StarsPosition -= Commons.BACKGROUND_HEIGHT;
 
             // Player
             player.render(g);

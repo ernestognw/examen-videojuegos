@@ -4,6 +4,7 @@ import java.awt.*;
 
 public class Alien extends Item {
     private Animation animation;
+    private int speed;
 
     /**
      * Set the initial values to create the item
@@ -15,12 +16,13 @@ public class Alien extends Item {
      */
     public Alien(int x, int y, int width, int height) {
         super(x, y, width, height);
+        speed = 5;
         animation = new Animation(Assets.alien, 100);
     }
 
     public void act(int direction) {
         animation.tick();
-        x += direction;
+        x += direction * speed;
     }
 
     @Override
