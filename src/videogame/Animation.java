@@ -3,7 +3,7 @@ package videogame;
 import java.awt.image.BufferedImage;
 
 /**
- * @author Ernesto García y Oscar Rodríguez
+ * @author Ernesto García and Oscar Rodríguez
  */
 public class Animation {
     private int speed;              // for the speed of every frame

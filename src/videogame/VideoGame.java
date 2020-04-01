@@ -6,7 +6,7 @@
 package videogame;
 
 /**
- * @author antoniomejorado
+ * @author Ernesto García and Oscar Rodríguez
  */
 public class VideoGame {
 

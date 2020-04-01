@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 /**
- * @author Ernesto García
+ * @author Ernesto García and Oscar Rodriguez
  */
 public class Game implements Runnable {
     String title;                           // title of the window

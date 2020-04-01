@@ -1,7 +1,7 @@
 package videogame;
 
 /**
- * @author Ernesto García
+ * @author Ernesto García and Oscar Rodríguez
  */
 public class Sounds {
 
