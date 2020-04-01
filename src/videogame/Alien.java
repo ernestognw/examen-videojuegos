@@ -3,7 +3,8 @@ package videogame;
 import java.awt.*;
 
 public class Alien extends Item {
-    private int direction;
+    private Animation animation;
+
     /**
      * Set the initial values to create the item
      *
@@ -12,27 +13,22 @@ public class Alien extends Item {
      * @param width
      * @param height
      */
-    public Alien(int x, int y, int width, int height, int direction) {
+    public Alien(int x, int y, int width, int height) {
         super(x, y, width, height);
-
-        setDirection(direction);
+        animation = new Animation(Assets.alien, 100);
     }
 
-    public void setDirection(int direction) {
-        this.direction = direction;
-    }
-
-    public int getDirection () {
-        return direction;
+    public void act(int direction) {
+        animation.tick();
+        x += direction;
     }
 
     @Override
     public void tick() {
-        setX(getX() + getDirection());
     }
 
     @Override
     public void render(Graphics g) {
-//        g.drawImage(Assets.Alien, getX(), getY(), getWidth(), getHeight(), null);
+        g.drawImage(animation.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
     }
 }

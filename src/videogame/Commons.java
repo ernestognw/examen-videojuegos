@@ -22,4 +22,10 @@ public interface Commons {
     // Player
     int PLAYER_WIDTH = 60;
     int PLAYER_HEIGHT = 60;
+
+    // Alien
+    int ALIEN_HEIGHT = 30;
+    int ALIEN_WIDTH = 30;
+    int ALIEN_INIT_X = 150;
+    int ALIEN_INIT_Y = 5;
 }

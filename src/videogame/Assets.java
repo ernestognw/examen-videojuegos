@@ -15,6 +15,7 @@ public class Assets {
     public static BufferedImage Stars;           // to store background image
     public static BufferedImage Meteors;      // to store background image
     public static BufferedImage[] player;     // to store the player images
+    public static BufferedImage[] alien;     // to store the player images
 
     /**
      * initializing the images of the game
@@ -25,26 +26,20 @@ public class Assets {
         Stars = ImageLoader.loadImage("/images/Stars.png");
         Meteors = ImageLoader.loadImage("/images/Meteors.png");
 
-        loadPlayer();
+        player = loadSprites(10, 57, 64, "/images/sprites/player.png");
+        alien = loadSprites(10, 39, 64, "/images/sprites/alien.png");
     }
 
-
-    /**
-     * To load the player spritesheet for animations
-     */
-    private static void loadPlayer(){
-        int framesInSprite = 10;
-        int frameWidth = 57;
-        int frameHeight = 64;
-        BufferedImage playerSprites;
-        playerSprites = ImageLoader.loadImage("/images/sprites/player.png");
-
-        player = new BufferedImage[framesInSprite];
-
-        SpriteSheet playerSpriteSheets = new SpriteSheet(playerSprites);
+    private static BufferedImage[] loadSprites(int framesInSprite, int frameWidth, int frameHeight, String path){
+        BufferedImage spriteSheet;
+        spriteSheet = ImageLoader.loadImage(path);
+        BufferedImage[] sprites = new BufferedImage[framesInSprite];
+        SpriteSheet sheet = new SpriteSheet(spriteSheet);
 
         for (int i = 0; i < framesInSprite; i++) {
-            player[i] = playerSpriteSheets.crop(i * frameWidth, 0, frameWidth, frameHeight);
+            sprites[i] = sheet.crop(i * frameWidth, 0, frameWidth, frameHeight);
         }
+
+        return sprites;
     }
 }

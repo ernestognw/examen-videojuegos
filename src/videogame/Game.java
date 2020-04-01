@@ -7,6 +7,8 @@ package videogame;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Ernesto García and Oscar Rodriguez
@@ -22,6 +24,8 @@ public class Game implements Runnable {
     private boolean running;                // to set the game
     private SpaceShip player;               // to use a player
     private KeyManager keyManager;          // to manage the keyboard
+    private List<Alien> aliens;             // to store aliens
+    private int aliensDirection;            // to store the alien direction
 
     /**
      * to create title, width and height and set the game is still not running
@@ -36,10 +40,12 @@ public class Game implements Runnable {
         this.height = height;
         running = false;
         keyManager = new KeyManager();
+        aliensDirection = 1;
     }
 
     /**
      * To get the key manager
+     *
      * @return <code>KeyManager</code>
      */
     public KeyManager getKeyManager() {
@@ -56,6 +62,14 @@ public class Game implements Runnable {
         Sounds.init();
         display.getJframe().addKeyListener(keyManager);
         player = new SpaceShip(width / 2, Commons.GROUND - Commons.PLAYER_HEIGHT, Commons.PLAYER_WIDTH, Commons.PLAYER_HEIGHT, this);
+        aliens = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 6; j++) {
+                Alien alien = new Alien(Commons.ALIEN_INIT_X + Commons.ALIEN_WIDTH * j, Commons.ALIEN_INIT_Y + Commons.ALIEN_HEIGHT * i, Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT);
+                aliens.add(alien);
+            }
+        }
     }
 
     @Override
@@ -90,6 +104,15 @@ public class Game implements Runnable {
 
     private void tick() {
         player.tick();
+        for (Alien alien : aliens) {
+            if (alien.getX() <= Commons.BORDER_LEFT || alien.getX() >= Commons.WINDOW_WIDTH - Commons.BORDER_RIGHT) {
+                aliensDirection *= -1;
+                break;
+            }
+        }
+        for (Alien alien : aliens) {
+            alien.act(aliensDirection);
+        }
         keyManager.tick();
     }
 
@@ -115,6 +138,11 @@ public class Game implements Runnable {
 
             // Player
             player.render(g);
+
+            // Alien
+            for (Alien alien : aliens) {
+                alien.render(g);
+            }
 
             bs.show();
             g.dispose();
