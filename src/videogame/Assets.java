@@ -17,6 +17,7 @@ public class Assets {
     public static BufferedImage[] player;       // to store the player images
     public static BufferedImage[] alien;        // to store the alien images
     public static BufferedImage[] bomb;         // to store the bomb images
+    public static BufferedImage[] shot;         // to store the bomb images
 
     /**
      * initializing the images of the game
@@ -30,6 +31,7 @@ public class Assets {
         player = loadSprites(10, 57, 64, "/images/sprites/player.png");
         alien = loadSprites(10, 39, 64, "/images/sprites/alien.png");
         bomb = loadSprites(10, 88, 64, "/images/sprites/bomb.png");
+        shot = loadSprites(10, 24, 64, "/images/sprites/shot.png");
     }
 
     private static BufferedImage[] loadSprites(int framesInSprite, int frameWidth, int frameHeight, String path){

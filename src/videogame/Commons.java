@@ -38,4 +38,8 @@ public interface Commons {
     int BOMB_HEIGHT = 16;
     int BOMB_WIDTH = 22;
     double BOMB_CHANCE = 0.005;
+
+    // Shot
+    int SHOT_HEIGHT = 16;
+    int SHOT_WIDTH = 22;
 }

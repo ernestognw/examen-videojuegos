@@ -26,7 +26,9 @@ public class Game implements Runnable {
     private KeyManager keyManager;          // to manage the keyboard
     private List<Alien> aliens;             // to store aliens
     private List<Bomb> bombs;               // to store bombs
+    private List<Shot> shots;               // to store shots
     private int aliensDirection;            // to store the alien direction
+    private int shotDelay;                  // to store shot delay
 
     // BG Variables
     private int BGPosition;
@@ -48,6 +50,7 @@ public class Game implements Runnable {
         running = false;
         keyManager = new KeyManager();
         aliensDirection = 1;
+        shotDelay = 0;
 
         // BG
         BGPosition = Commons.WINDOW_HEIGHT - Commons.BACKGROUND_HEIGHT;
@@ -77,6 +80,7 @@ public class Game implements Runnable {
         player = new SpaceShip(width / 2, Commons.GROUND - Commons.PLAYER_HEIGHT, Commons.PLAYER_WIDTH, Commons.PLAYER_HEIGHT, this);
         aliens = new ArrayList<>();
         bombs = new ArrayList<>();
+        shots = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
@@ -117,6 +121,14 @@ public class Game implements Runnable {
     private void tick() {
         player.tick();
         int initialDirection = aliensDirection;
+        shotDelay--;
+
+        if(keyManager.SPACE && shotDelay < 0){
+            Shot shot = new Shot(player.getX(), player.getY(), Commons.SHOT_WIDTH, Commons.SHOT_HEIGHT);
+            shots.add(shot);
+            shotDelay = 5;
+        }
+
         // Check if any alien reach borders
         for (Alien alien : aliens) {
             if (alien.getX() <= Commons.BORDER_LEFT || alien.getX() >= Commons.WINDOW_WIDTH - Commons.BORDER_RIGHT) {
@@ -136,7 +148,13 @@ public class Game implements Runnable {
 
         for (Bomb bomb : bombs) {
             bomb.tick();
-//            if(bomb.getY() > Commons.WINDOW_HEIGHT) bombs.remove(bomb);
+            // if(bomb.getY() > Commons.WINDOW_HEIGHT) bombs.remove(bomb);
+            // Lo de arriba no jala y no sé porqué
+        }
+
+        for (Shot shot : shots) {
+            shot.tick();
+            // Añadir la lógica de colisión
         }
         keyManager.tick();
     }
@@ -191,6 +209,11 @@ public class Game implements Runnable {
             // Bomb
             for (Bomb bomb : bombs) {
                 bomb.render(g);
+            }
+
+            // Shot
+            for (Shot shot : shots) {
+                shot.render(g);
             }
 
             bs.show();
