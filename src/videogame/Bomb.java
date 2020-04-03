@@ -30,6 +30,7 @@ public class Bomb extends Item {
 
     @Override
     public void tick() {
+        animation.tick();
         setY(getY() + speed);
     }
 

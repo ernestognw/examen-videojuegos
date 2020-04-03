@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df8e139-876e-47f5-847c-2d5abac28a97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/videogame/Shot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sounds/shot.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/images/sprites/sprites.ai" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/images/sprites/sprites.ai" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Assets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Commons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Commons.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/KeyManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/KeyManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/sprites/sprites.ai" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/sprites/sprites.ai" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/Commons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Commons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Bomb.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/videogame/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Bomb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/videogame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/KeyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/KeyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/videogame/Sounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Sounds.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,16 +42,17 @@
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/images" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="videogame" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/images/sprites" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="videogame" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/sounds" />
+      <recent name="$PROJECT_DIR$/src/images" />
     </key>
   </component>
   <component name="RunManager">
@@ -90,7 +85,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1585758167268</updated>
-      <workItem from="1585758172649" duration="18236000" />
+      <workItem from="1585758172649" duration="18681000" />
+      <workItem from="1585802219190" duration="1543000" />
+      <workItem from="1585952191365" duration="998000" />
     </task>
     <servers />
   </component>
@@ -106,37 +103,37 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1585772792373" />
-    <state width="1398" height="230" key="GridCell.Tab.0.bottom" timestamp="1585778182471">
+    <state width="1398" height="230" key="GridCell.Tab.0.bottom" timestamp="1585953404168">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585778182471" />
-    <state width="1398" height="230" key="GridCell.Tab.0.center" timestamp="1585778182470">
+    <state width="1398" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585953404168" />
+    <state width="1398" height="230" key="GridCell.Tab.0.center" timestamp="1585953404166">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1585778182470" />
-    <state width="1398" height="230" key="GridCell.Tab.0.left" timestamp="1585778182470">
+    <state width="1398" height="230" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1585953404166" />
+    <state width="1398" height="230" key="GridCell.Tab.0.left" timestamp="1585953404166">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1585778182470" />
-    <state width="1398" height="230" key="GridCell.Tab.0.right" timestamp="1585778182471">
+    <state width="1398" height="230" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1585953404166" />
+    <state width="1398" height="230" key="GridCell.Tab.0.right" timestamp="1585953404168">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1585778182471" />
-    <state width="1398" height="285" key="GridCell.Tab.1.bottom" timestamp="1585766156055">
+    <state width="1398" height="230" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1585953404168" />
+    <state width="1398" height="285" key="GridCell.Tab.1.bottom" timestamp="1585803963935">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585766156055" />
-    <state width="1398" height="285" key="GridCell.Tab.1.center" timestamp="1585766156053">
+    <state width="1398" height="285" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585803963935" />
+    <state width="1398" height="285" key="GridCell.Tab.1.center" timestamp="1585803963934">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1585766156053" />
-    <state width="1398" height="285" key="GridCell.Tab.1.left" timestamp="1585766156053">
+    <state width="1398" height="285" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1585803963934" />
+    <state width="1398" height="285" key="GridCell.Tab.1.left" timestamp="1585803963933">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1585766156053" />
-    <state width="1398" height="285" key="GridCell.Tab.1.right" timestamp="1585766156054">
+    <state width="1398" height="285" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1585803963933" />
+    <state width="1398" height="285" key="GridCell.Tab.1.right" timestamp="1585803963934">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="285" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1585766156054" />
+    <state width="1398" height="285" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1585803963934" />
   </component>
 </project>

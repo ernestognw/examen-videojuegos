@@ -5,6 +5,8 @@
  */
 package videogame;
 
+import javafx.util.Duration;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
@@ -124,9 +126,11 @@ public class Game implements Runnable {
         shotDelay--;
 
         if(keyManager.SPACE && shotDelay < 0){
-            Shot shot = new Shot(player.getX(), player.getY(), Commons.SHOT_WIDTH, Commons.SHOT_HEIGHT);
+            Shot shot = new Shot(player.getX() + Commons.PLAYER_WIDTH / 2 - Commons.SHOT_WIDTH / 2, player.getY(), Commons.SHOT_WIDTH, Commons.SHOT_HEIGHT);
             shots.add(shot);
-            shotDelay = 5;
+            shotDelay = 10;
+            Sounds.shot.seek(Duration.ZERO);
+            Sounds.shot.play();
         }
 
         // Check if any alien reach borders
