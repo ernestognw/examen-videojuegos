@@ -7,20 +7,22 @@ package videogame;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * @author Ernesto García and Oscar Rodriguez
  */
 public class Game implements Runnable {
     String title;                           // title of the window
-    private BufferStrategy bs;              // to have several buffers when displaying
-    private Graphics g;                     // to paint objects
+    public static final String saveFileName = "latestState.txt"; // Save state to file
     private Display display;                // to display in the game
     private int width;                      // width of the window
     private int height;                     // height of the window
-    private Thread thread;                  // thread to create the game
     private boolean running;                // to set the game
     private SpaceShip player;               // to use a player
     private KeyManager keyManager;          // to manage the keyboard
@@ -83,7 +85,7 @@ public class Game implements Runnable {
         shots = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 6; j++) {
+            for (int j = 0; j < 8; j++) {
                 Alien alien = new Alien(Commons.ALIEN_INIT_X + ((Commons.ALIEN_WIDTH + Commons.ALIEN_PADDING) * j), Commons.ALIEN_INIT_Y + ((Commons.ALIEN_HEIGHT + Commons.ALIEN_PADDING) * i), Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT);
                 aliens.add(alien);
             }
@@ -123,10 +125,18 @@ public class Game implements Runnable {
         int initialDirection = aliensDirection;
         shotDelay--;
 
-        if(keyManager.SPACE && shotDelay < 0){
+        if (keyManager.SPACE && shotDelay < 0){
             Shot shot = new Shot(player.getX(), player.getY(), Commons.SHOT_WIDTH, Commons.SHOT_HEIGHT);
             shots.add(shot);
-            shotDelay = 5;
+            shotDelay = 20;
+        }
+
+        if (keyManager.S) { // Save game state
+            saveState();
+        }
+
+        if (keyManager.L) { // Load game state
+            loadState();
         }
 
         // Check if any alien reach borders
@@ -146,22 +156,45 @@ public class Game implements Runnable {
             }
         }
 
-        for (Bomb bomb : bombs) {
+        for (Iterator<Bomb> bombIter = bombs.iterator(); bombIter.hasNext();) {
+            Bomb bomb = bombIter.next();
             bomb.tick();
-            // if(bomb.getY() > Commons.WINDOW_HEIGHT) bombs.remove(bomb);
-            // Lo de arriba no jala y no sé porqué
+
+            if (player.collision(bomb)) {
+                bombIter.remove();
+                player.setLives(player.getLives() - 1);
+            }
+        }
+
+        for (Alien alien : aliens) {
+            alien.tick();
         }
 
         for (Shot shot : shots) {
             shot.tick();
-            // Añadir la lógica de colisión
         }
+
+        for (Iterator<Alien> alienIter = aliens.iterator(); alienIter.hasNext();) {
+            Alien alien = alienIter.next();
+
+            for (Iterator<Shot> shotIter = shots.iterator(); shotIter.hasNext();) {
+                Shot shot = shotIter.next();
+
+                if (alien.collision(shot)) {
+                    alienIter.remove();
+                    shotIter.remove();
+                    player.setPoints(player.getPoints() + 100);
+                }
+            }
+        }
+
         keyManager.tick();
     }
 
     private void render() {
         // get the buffer strategy from the display
-        bs = display.getCanvas().getBufferStrategy();
+        // to have several buffers when displaying
+        BufferStrategy bs = display.getCanvas().getBufferStrategy();
         /* if it is null, we define one with 3 buffers to display images of
         the game, if not null, then we display every image of the game but
         after clearing the Rectangle, getting the graphic object from the
@@ -171,7 +204,8 @@ public class Game implements Runnable {
         if (bs == null) {
             display.getCanvas().createBufferStrategy(3);
         } else {
-            g = bs.getDrawGraphics();
+            // to paint objects
+            Graphics g = bs.getDrawGraphics();
 
             // Background
             BGPosition += 5;
@@ -192,6 +226,11 @@ public class Game implements Runnable {
             g.drawImage(Assets.Meteors, 0, MeteorsPosition, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
             g.drawImage(Assets.Meteors, 0, MeteorsPosition - Commons.BACKGROUND_HEIGHT, Commons.BACKGROUND_WIDTH, Commons.BACKGROUND_HEIGHT, null);
 
+            g.setColor(Color.WHITE);
+            Font font = new Font("Agency FB", Font.BOLD, 22);
+            g.setFont(font);
+            g.drawString("Vidas: " + player.getLives(), 50, height - 20);
+            g.drawString("Puntos: " + player.getPoints(), 200, height - 20);
 
             if(BGPosition > Commons.WINDOW_HEIGHT) BGPosition -= Commons.BACKGROUND_HEIGHT;
             if(MeteorsPosition > Commons.WINDOW_HEIGHT) MeteorsPosition -= Commons.BACKGROUND_HEIGHT;
@@ -227,8 +266,95 @@ public class Game implements Runnable {
     public synchronized void start() {
         if (!running) {
             running = true;
-            thread = new Thread(this);
+            // thread to create the game
+            Thread thread = new Thread(this);
             thread.start();
+        }
+    }
+
+    /**
+     * Save the current game state
+     */
+    public void saveState() {
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter(saveFileName));
+            writer.println("[g] aliensDirection:" + aliensDirection);
+            writer.println("[g] shotDelay:" + shotDelay);
+            writer.println(player.toString());
+
+            for (Alien alien : aliens) {
+                writer.println(alien.toString());
+            }
+
+            for (Bomb bomb : bombs) {
+                writer.println(bomb.toString());
+            }
+
+            for (Shot shot : shots) {
+                writer.println(shot.toString());
+            }
+
+            writer.close();
+        } catch (IOException ioe) {
+            System.out.println("File Not found CALL 911");
+        }
+    }
+
+    /**
+     * Load the most recent game state
+     */
+    public void loadState() {
+        try {
+            FileReader file = new FileReader(saveFileName);
+            BufferedReader reader = new BufferedReader(file);
+            String line, attribute, typeofObject;
+            int alienI = 0, bombI = 0, shotI = 0, x, y, lives, points;
+            String[] attributes;
+
+            while ((line = reader.readLine()) != null) {
+                attributes = line.split(" ");
+                typeofObject = attributes[0];
+
+                if (typeofObject.equals("[g]")) {
+                    attribute = attributes[1].substring(0, attributes[1].indexOf(":"));
+                    switch (attribute) {
+                        case "aliensDirection":
+                            aliensDirection = parseInt(attributes[1].substring(attributes[1].indexOf(":") + 1));
+                            break;
+                        case "shotDelay":
+                            shotDelay = parseInt(attributes[1].substring(attributes[1].indexOf(":") + 1));
+                            break;
+                    }
+                } else {
+                    x = parseInt(attributes[1].substring(attributes[1].indexOf(":") + 1));
+                    y = parseInt(attributes[2].substring(attributes[2].indexOf(":") + 1));
+
+                    switch (typeofObject) {
+                        case "[p]": // Reload player state
+                            lives = parseInt(attributes[3].substring(attributes[3].indexOf(":") + 1));
+                            points = parseInt(attributes[4].substring(attributes[4].indexOf(":") + 1));
+
+                            player = new SpaceShip(x, y, Commons.PLAYER_WIDTH, Commons.PLAYER_HEIGHT, this);
+                            player.setPoints(points);
+                            player.setLives(lives);
+                            break;
+                        case "[a]":
+                            aliens.set(alienI, new Alien(x, y, Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT));
+                            alienI++;
+                            break;
+                        case "[b]":
+                            bombs.set(bombI, new Bomb(x, y, Commons.SHOT_WIDTH, Commons.SHOT_HEIGHT));
+                            bombI++;
+                            break;
+                        case "[s]":
+                            shots.set(shotI, new Shot(x, y, Commons.BOMB_WIDTH, Commons.BOMB_HEIGHT));
+                            shotI++;
+                            break;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

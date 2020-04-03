@@ -10,6 +10,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class SpaceShip extends Item {
+    private int lives;
+    private int points;
     private int speed;
     private Animation animation;
     private Game game;
@@ -25,9 +27,27 @@ public class SpaceShip extends Item {
     public SpaceShip(int x, int y, int width, int height, Game game) {
         super(x, y, width, height);
 
+        lives = 3;
+        points = 0;
         speed = 15;
         this.game = game;
         animation = new Animation(Assets.player, 100);
+    }
+
+    public int getLives() {
+        return lives;
+    }
+
+    public void setLives(int lives) {
+        this.lives = lives;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     public void tick() {
@@ -47,6 +67,11 @@ public class SpaceShip extends Item {
         if (getX() >= Commons.WINDOW_WIDTH - Commons.BORDER_RIGHT) {
             setX(Commons.WINDOW_WIDTH - Commons.BORDER_RIGHT);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "[p] x:" + x + " y:" + y + " lives:" + lives + " points:" + points;
     }
 
     @Override

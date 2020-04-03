@@ -30,6 +30,11 @@ public class Alien extends Item {
     }
 
     @Override
+    public String toString() {
+        return "[a] x:" + x + " y:" + y;
+    }
+
+    @Override
     public void render(Graphics g) {
         g.drawImage(animation.getCurrentFrame(), getX(), getY(), getWidth(), getHeight(), null);
     }

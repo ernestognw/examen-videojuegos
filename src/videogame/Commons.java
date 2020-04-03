@@ -20,15 +20,15 @@ public interface Commons {
     int GROUND = 665;
 
     // Player
-    int PLAYER_WIDTH = 57;
-    int PLAYER_HEIGHT = 64;
+    int PLAYER_WIDTH = 35;
+    int PLAYER_HEIGHT = 35;
 
     // Alien
-    int ALIEN_HEIGHT = 64;
-    int ALIEN_WIDTH = 39;
+    int ALIEN_HEIGHT = 30; //64;
+    int ALIEN_WIDTH = 30; //39;
     int ALIEN_INIT_X = 150;
     int ALIEN_INIT_Y = 5;
-    int ALIEN_PADDING = 5;
+    int ALIEN_PADDING = 8;
 
     // Background
     int BACKGROUND_HEIGHT = 1920;
