@@ -10,6 +10,7 @@ public class Sounds {
     public static MediaPlayer hitAlien;
     public static MediaPlayer hitPlayer;
     public static MediaPlayer loose;
+    public static MediaPlayer win;
 
     /**
      * initializing sounds
@@ -19,5 +20,6 @@ public class Sounds {
         hitAlien = SoundLoader.loadSound("/sounds/hitAlien.wav");
         hitPlayer = SoundLoader.loadSound("/sounds/hitPlayer.wav");
         loose = SoundLoader.loadSound("/sounds/loose.wav");
+        win = SoundLoader.loadSound("/sounds/win.mp3");
     }
 }

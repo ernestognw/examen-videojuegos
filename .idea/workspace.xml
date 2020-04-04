@@ -2,43 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5df8e139-876e-47f5-847c-2d5abac28a97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/images/gui/ArmorBar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/gui/ArmorDot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/gui/HealthBar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/gui/HealthDot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/gui/StatsBar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/gui/loose.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/gui/pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sounds/hitAlien.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sounds/hitPlayer.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sounds/loose.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sounds/win.mp3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Alien.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Alien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Animation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Assets.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Assets.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Bomb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Commons.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Commons.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Display.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/latestState.txt" beforeDir="false" afterPath="$PROJECT_DIR$/latestState.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/ImageLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/ImageLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/KeyManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/KeyManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Shot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Shot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/SoundLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/SoundLoader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Sounds.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/Sounds.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/SpaceShip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/SpaceShip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/SpriteSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/SpriteSheet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/VideoGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space-Invaders/videogame/VideoGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/Alien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Alien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/Assets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Assets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/Commons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Commons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/videogame/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/KeyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/KeyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/Shot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Shot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/videogame/Sounds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/Sounds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/videogame/SpaceShip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/videogame/SpaceShip.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +53,7 @@
       <recent name="videogame" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/sounds" />
       <recent name="$PROJECT_DIR$/src/images/gui" />
       <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/images/sprites" />
@@ -122,7 +93,7 @@
       <workItem from="1585758172649" duration="18681000" />
       <workItem from="1585802219190" duration="1543000" />
       <workItem from="1585952191365" duration="1639000" />
-      <workItem from="1585953904732" duration="16186000" />
+      <workItem from="1585953904732" duration="17410000" />
     </task>
     <servers />
   </component>
@@ -148,22 +119,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1585970218856" />
-    <state width="1398" height="230" key="GridCell.Tab.0.bottom" timestamp="1585972818427">
+    <state width="1398" height="230" key="GridCell.Tab.0.bottom" timestamp="1585973710445">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585972818427" />
-    <state width="1398" height="230" key="GridCell.Tab.0.center" timestamp="1585972818426">
+    <state width="1398" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585973710445" />
+    <state width="1398" height="230" key="GridCell.Tab.0.center" timestamp="1585973710443">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1585972818426" />
-    <state width="1398" height="230" key="GridCell.Tab.0.left" timestamp="1585972818426">
+    <state width="1398" height="230" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1585973710443" />
+    <state width="1398" height="230" key="GridCell.Tab.0.left" timestamp="1585973710442">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1585972818426" />
-    <state width="1398" height="230" key="GridCell.Tab.0.right" timestamp="1585972818427">
+    <state width="1398" height="230" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1585973710442" />
+    <state width="1398" height="230" key="GridCell.Tab.0.right" timestamp="1585973710444">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="230" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1585972818427" />
+    <state width="1398" height="230" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1585973710444" />
     <state width="1398" height="285" key="GridCell.Tab.1.bottom" timestamp="1585803963935">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

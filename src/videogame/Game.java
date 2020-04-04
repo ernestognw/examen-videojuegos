@@ -174,7 +174,7 @@ public class Game implements Runnable {
         }
 
         if(aliens.size() <= 0){
-            win = true;
+            win();
             return;
         }
 
@@ -205,14 +205,14 @@ public class Game implements Runnable {
                 Sounds.hitPlayer.play();
                 player.reduceArmor();
                 if (player.getLives() == 0) {
-                    loose = true;
+                    loose();
                 }
             }
         }
 
         for (Alien alien : aliens) {
             if(alien.getY() >= Commons.GROUND - Commons.ALIEN_HEIGHT){
-                loose = true;
+                loose();
             }
             alien.tick();
         }
@@ -246,7 +246,7 @@ public class Game implements Runnable {
             }
 
             if(alien.collision(player)) {
-                loose = true;
+                loose();
             }
         }
 
@@ -373,6 +373,24 @@ public class Game implements Runnable {
             Thread thread = new Thread(this);
             thread.start();
         }
+    }
+
+    /**
+     * Loose game
+     */
+    public void loose() {
+        Sounds.loose.seek(Duration.ZERO);
+        Sounds.loose.play();
+        loose = true;
+    }
+
+    /**
+     * Win game
+     */
+    public void win() {
+        Sounds.win.seek(Duration.ZERO);
+        Sounds.win.play();
+        win = true;
     }
 
     /**
