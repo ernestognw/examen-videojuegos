@@ -3,8 +3,6 @@ package videogame;
 import java.awt.*;
 
 public class Bomb extends Item {
-    private boolean destroyed;
-    private int speed = 5;
     private Animation animation;
 
     /**
@@ -20,18 +18,16 @@ public class Bomb extends Item {
         animation = new Animation(Assets.bomb, 100);
     }
 
-    public void setDestroyed(boolean destroyed) {
-        this.destroyed = destroyed;
-    }
-
-    public boolean isDestroyed() {
-        return destroyed;
-    }
-
     @Override
     public void tick() {
         animation.tick();
+        int speed = 5;
         setY(getY() + speed);
+    }
+
+    @Override
+    public String toString() {
+        return "[b] x:" + x + " y:" + y;
     }
 
     @Override

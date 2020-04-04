@@ -17,6 +17,10 @@ public class KeyManager implements KeyListener {
     public boolean UP;
     public boolean DOWN;
     public boolean SPACE;
+    public boolean G;
+    public boolean C;
+    public boolean P;
+    public boolean R;
 
     private boolean[] keys;  // to store all the flags for every key
 
@@ -47,5 +51,9 @@ public class KeyManager implements KeyListener {
         UP = keys[KeyEvent.VK_UP];
         DOWN = keys[KeyEvent.VK_DOWN];
         SPACE = keys[KeyEvent.VK_SPACE];
+        G = keys[KeyEvent.VK_G];
+        C = keys[KeyEvent.VK_C];
+        P = keys[KeyEvent.VK_P];
+        R = keys[KeyEvent.VK_R];
     }
 }

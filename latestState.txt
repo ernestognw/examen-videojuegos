@@ -1,0 +1,85 @@
+[g] aliensDirection:1
+[g] shotDelay:-222
+[p] x:918 y:726 lives:8 points:340 armor:2
+[a] x:140 y:84 armor:7
+[a] x:187 y:84 armor:8
+[a] x:234 y:84 armor:8
+[a] x:281 y:84 armor:8
+[a] x:328 y:84 armor:8
+[a] x:375 y:84 armor:8
+[a] x:422 y:84 armor:8
+[a] x:469 y:84 armor:8
+[a] x:516 y:84 armor:8
+[a] x:563 y:84 armor:8
+[a] x:140 y:156 armor:8
+[a] x:187 y:156 armor:8
+[a] x:234 y:156 armor:8
+[a] x:281 y:156 armor:8
+[a] x:328 y:156 armor:8
+[a] x:375 y:156 armor:8
+[a] x:422 y:156 armor:8
+[a] x:469 y:156 armor:8
+[a] x:516 y:156 armor:8
+[a] x:563 y:156 armor:8
+[a] x:140 y:228 armor:8
+[a] x:187 y:228 armor:8
+[a] x:234 y:228 armor:8
+[a] x:281 y:228 armor:8
+[a] x:328 y:228 armor:8
+[a] x:375 y:228 armor:8
+[a] x:422 y:228 armor:8
+[a] x:469 y:228 armor:8
+[a] x:516 y:228 armor:8
+[a] x:563 y:228 armor:8
+[a] x:140 y:300 armor:8
+[a] x:187 y:300 armor:6
+[a] x:234 y:300 armor:8
+[a] x:281 y:300 armor:8
+[a] x:328 y:300 armor:7
+[a] x:375 y:300 armor:8
+[a] x:422 y:300 armor:8
+[a] x:469 y:300 armor:8
+[a] x:516 y:300 armor:8
+[a] x:563 y:300 armor:8
+[b] x:638 y:1672
+[b] x:230 y:1585
+[b] x:277 y:1585
+[b] x:637 y:1532
+[b] x:380 y:1579
+[b] x:677 y:1420
+[b] x:618 y:1529
+[b] x:861 y:1330
+[b] x:800 y:1250
+[b] x:922 y:1175
+[b] x:692 y:1170
+[b] x:932 y:1237
+[b] x:680 y:1351
+[b] x:1066 y:1197
+[b] x:977 y:1120
+[b] x:978 y:1097
+[b] x:1171 y:1236
+[b] x:1181 y:1010
+[b] x:943 y:1106
+[b] x:961 y:1008
+[b] x:674 y:931
+[b] x:998 y:854
+[b] x:894 y:916
+[b] x:624 y:953
+[b] x:576 y:786
+[b] x:425 y:776
+[b] x:400 y:679
+[b] x:350 y:701
+[b] x:753 y:753
+[b] x:649 y:671
+[b] x:619 y:641
+[b] x:403 y:638
+[b] x:239 y:496
+[b] x:417 y:414
+[b] x:231 y:297
+[b] x:513 y:513
+[b] x:117 y:349
+[b] x:10 y:217
+[b] x:5 y:284
+[b] x:354 y:420
+[b] x:404 y:370
+[b] x:152 y:340
